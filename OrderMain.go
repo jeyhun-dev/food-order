@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"food-order/src/defaultvalues"
+	"food-order/src/constructor"
+	"strings"
 )
 
 func main() {
@@ -29,13 +30,29 @@ func main() {
 			person.GetAge(),
 			person.GetAddress())*/
 
-	myStruct := defaultvalues.MyStruct{}
+	//testLesson := setterandgetter.Test{}
+	//testLesson.SetQuiz("Data Type in Java")
+	//testLesson.SetCount(15)
+	//
+	//fmt.Printf("My quiz name:  %v\n", testLesson.GetQuiz())
+	//fmt.Printf("My quiz count: %v", testLesson.GetCount())
 
-	fmt.Println("Integer:", myStruct.Integer)   // 0
-	fmt.Println("Floating:", myStruct.Floating) // 0
-	fmt.Println("String:", myStruct.Str)        // ""
-	fmt.Println("Bool:", myStruct.Boolean)      // false
-	fmt.Println("Pointer:", myStruct.Pointer)   // nil
-	fmt.Println("Slice:", myStruct.Slice)       // []
-	fmt.Println("Map:", myStruct.Map)           // map[]
+	//myStruct := defaultvalues.MyStruct{}
+	//
+	//fmt.Println("Integer:", myStruct.Integer)   // 0
+	//fmt.Println("Floating:", myStruct.Floating) // 0
+	//fmt.Println("String:", myStruct.Str)        // ""
+	//fmt.Println("Bool:", myStruct.Boolean)      // false
+	//fmt.Println("Pointer:", myStruct.Pointer)   // nil
+	//fmt.Println("Slice:", myStruct.Slice)       // []
+	//fmt.Println("Map:", myStruct.Map)           // map[]
+
+	cat := constructor.NewCat("Jessie", "Los Angeles", "lady", 1)
+	fmt.Printf("My consructor full result: %v\n", cat)
+	fmt.Printf(strings.Repeat("*\n", 3))
+
+	horse := constructor.NewHorse("Lime", 5)
+	fmt.Printf("My horse name: %v\n", horse.Name)
+	fmt.Printf("My horse age: %v\n", horse.Age)
+
 }
