@@ -2,7 +2,10 @@ package main
 
 import (
 	"fmt"
-	"food-order/src/constructor"
+	constructor2 "food-order/constructor"
+	"food-order/controller"
+	"log"
+	"net/http"
 	"strings"
 )
 
@@ -47,12 +50,24 @@ func main() {
 	//fmt.Println("Slice:", myStruct.Slice)       // []
 	//fmt.Println("Map:", myStruct.Map)           // map[]
 
-	cat := constructor.NewCat("Jessie", "Los Angeles", "lady", 1)
+	cat := constructor2.NewCat("Jessie", "Los Angeles", "lady", 1)
 	fmt.Printf("My consructor full result: %v\n", cat)
 	fmt.Printf(strings.Repeat("*\n", 3))
 
-	horse := constructor.NewHorse("Lime", 5)
+	horse := constructor2.NewHorse("Lime", 5)
 	fmt.Printf("My horse name: %v\n", horse.Name)
 	fmt.Printf("My horse age: %v\n", horse.Age)
+
+	//msg := fmt.Printf("Hello, my name is: %v", horse.Name)
+	msgTwo := fmt.Sprintf("Hello my name is %v", horse.Name)
+	//fmt.Println(msg)
+	fmt.Println(msgTwo)
+
+	fmt.Printf(strings.Repeat("*\n", 3))
+
+	http.HandleFunc("/home", func(w http.ResponseWriter, r *http.Request) {
+		controller.HomePage(w, r)
+	})
+	log.Fatal(http.ListenAndServe(":8080", nil))
 
 }
